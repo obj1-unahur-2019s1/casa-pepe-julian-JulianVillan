@@ -59,16 +59,16 @@ object compu {
 }
 
 object dolar {
-	var property precioDeVenta = 45
-	
-	method precioDeVenta() {return precioDeVenta}
+	method precioDeCompra() { return 44}
+	method precioDeVenta() { return 45 }
 }
 
 object packDeComida {
 	var sumaDePrecios = 0 
-	const pack = #{}
-	method pedir(comida,aderezo) {pack.add(comida) ; pack.add(aderezo)}
-	method precio() {sumaDePrecios = pack.first() + pack.last()
+	const packComidas = #{}
+	method pedir(comida,aderezo) {packComidas.add(comida) ; packComidas.add(aderezo)}
+	method precio() { sumaDePrecios = packComidas.sum{ comida => comida.precio() }
 		return sumaDePrecios
 	}
 }
+

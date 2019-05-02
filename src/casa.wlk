@@ -63,9 +63,10 @@ object cuentaCombinada{
 	var secundaria = 0
 	method depositar(importe){ primaria += importe }
 	method extraer(importe){ 
-		if (importe >= primaria){
-			primaria -= importe
-		}
+		const cuantoSacoDePrimaria = importe.min(primaria)
+		primaria -= cuantoSacoDePrimaria
+		secundaria -= importe - cuantoSacoDePrimaria 
+		
 	}
 	method saldo(){ return primaria + secundaria }
 }
